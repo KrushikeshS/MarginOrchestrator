@@ -1,2 +1,7 @@
 <Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Orchestrator.Domain/Orchestrator.Domain.csproj" />
+    <Project Path="src/Orchestrator.Infrastructure/Orchestrator.Infrastructure.csproj" />
+    <Project Path="src/Orchestrator.Worker/Orchestrator.Worker.csproj" />
+  </Folder>
 </Solution>
