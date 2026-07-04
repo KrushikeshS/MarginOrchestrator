@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.SemanticKernel;
@@ -24,6 +25,10 @@ builder.ConfigureServices((context, services) =>
 
     services.AddSingleton<IDisputeDraftService, SemanticKernelDraftService>();
     services.AddHostedService<IngestionWorker>();
+    // Register OrchestratorDbContext using the In-Memory DB provider
+    services.AddDbContext<OrchestratorDbContext>(options =>
+        options.UseInMemoryDatabase("DisputesAuditDatabase"));
+
 });
 
 var host = builder.Build();
